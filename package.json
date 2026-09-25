@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && git add -f dist && git commit -m \"Deploy to gh-pages\" && git push origin $(git subtree split --prefix dist):refs/heads/gh-pages --force && git reset --soft HEAD~1 && git reset dist"
   },
   "dependencies": {
     "@pdfsmaller/pdf-decrypt": "^1.0.1",
